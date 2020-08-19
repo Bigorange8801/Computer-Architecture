@@ -116,3 +116,4 @@ class CPU:
                 self.branch_table[ir]()
             except:
                 raise Exception(f"Unknown instruction: {self.ram[self.pc]}")
+
