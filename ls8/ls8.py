@@ -3,10 +3,10 @@
 """Main."""
 
 import sys
-from cpu import
+from cpu import*
 
 cpu = CPU()
 
 # try:
-cpu.load(sys.argv[1])
+cpu.load()
 cpu.run()

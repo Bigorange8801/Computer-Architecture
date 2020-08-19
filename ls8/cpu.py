@@ -64,7 +64,8 @@ class CPU:
         self.reg[7] += 1
         self.pc += 2
 
-    def load(self, fileName):
+    def load(self):
+        fileName = sys.argv[1]
         """Load a program into memory."""
         address = 0
         with open(fileName) as file:
@@ -72,10 +73,10 @@ class CPU:
                 line = line.split('#')
                 try:
                     instruction = int(line[0], 2)
-                    self.ram[address] = instruction
-                    address += 1
                 except ValueError:
                     continue
+                self.ram_write(address, instruction)
+                address += 1
                     
     def alu(self, op, reg_a, reg_b):
         """ALU operations."""
